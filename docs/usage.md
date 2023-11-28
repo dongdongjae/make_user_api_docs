@@ -4,27 +4,61 @@
 ```py
 from dong_api.users import User
 
-
 user = User(db_name, db_table_name)
 ```
-- `db_name` : SQLite DB 이름
+
+<br />
+**User 파라미터** 
+<br />
+
+---
+
+
+<P><span style="font-weight:bold">db_name</span> <span style="color:red">필수</span> · <span style="color:green">string</span></p>
+SQLite DB 이름입니다. 
+
+---
+
+<P><span style="font-weight:bold">db_table_name</span> <span style="color:red">필수</span> · <span style="color:green">string</span></p>
+DB table 이름입니다.
+
+---
+
+
+파라미터에 작성된 데이터베이스에 대해 아래와 같은 메서드를 제공합니다.
+
 <br/ >
-- `db_table_name` : DB table 이름
+<br/ >
 
-라미터에 작성된 데이터베이스에 대해 아래와 같은 메서드를 제공합니다.
-
-## signinUser()
+### signinUser()
 에플리케이션으로부터 전달 받은 사용자의 로그인 정보를 데이터베이스에서 조회 한 후, 결과를 반환하는 메서드입니다.
 
 ``` py
  response = user.signinUser(data)
 ```
-- `user.signinUser(data)` : 파라미터로 사용자의 email과 password를 넣어줍니다.
+<br />
+**signinUser 파라미터** 
+<br />
 
-<br/ >
+---
+
+
+<P><span style="font-weight:bold">email</span> <span style="color:red">필수</span> · <span style="color:green">string</span></p>
+사용자의 이메일입니다.  
+
+---
+
+<P><span style="font-weight:bold">passwordOne</span> <span style="color:red">필수</span> · <span style="color:green">string</span></p>
+사용자의 비밀번호입니다.
+
+---
+
+<br />
 데이터베이스 안에 사용자의 정보가 없거나 혹은 비밀번호가 틀렸을 경우 `False`와 실패 메시지를 반환합니다. 반대로 사용자의 정보를 찾고 입력받은 정보와 일치하는 경우 `True`와 성공 메시지, `username`, `access_token`을 생성하여 반환 합니다.
+<br />
 
-**Fail**
+<span style="color:red">Fail</span>
+
 ```json
 // 이메일을 잘못 입력한 경우
 {
@@ -45,7 +79,8 @@ user = User(db_name, db_table_name)
 }
 ```
 
-**Success**
+<span style="color:blue">Success</span>
+
 ```json
 {
     "result": true,
@@ -56,20 +91,43 @@ user = User(db_name, db_table_name)
 ```
 
 <br/ >
+<br/ >
 
-
-## signupUser()
+### signupUser()
 에플리케이션으로부터 전달 받은 사용자의 회원가입 정보를 데이터베이스에서 조회 및 추가한 후, 결과를 반환하는 메서드입니다.
 ```py
 response = user.signupUser(data)
 ```
-- `user.signupUser(data)` : 파라미터로 사용자의 email과 password, username을 넣어줍니다.
 
-<br/ >
+<br />
+**signupUser 파라미터** 
+<br />
+
+---
+
+
+<P><span style="font-weight:bold">email</span> <span style="color:red">필수</span> · <span style="color:green">string</span></p>
+사용자의 이메일입니다.  
+
+---
+
+<P><span style="font-weight:bold">password</span> <span style="color:red">필수</span> · <span style="color:green">string</span></p>
+사용자의 비밀번호입니다. 반드시 6글자 이상의 문자열이어야 합니다.
+
+---
+
+<P><span style="font-weight:bold">username</span> <span style="color:red">필수</span> · <span style="color:green">string</span></p>
+사용자의 이름(닉네임)입니다.  
+
+---
+
+
+<br />
 먼저 전달받은 사용자의 email과 username이 데이터베이스이 존재하는지 확인합니다. email 또는 username이 이미 존재하는 경우, False와 실패 메시지를 반환합니다. 반대로 존재하지 않는 경우에는 데이터베이스에 추가한 후에 True와 성공 메시지를 반환합니다. 
 
-**Fail**
-```json
+<span style="color:red">Fail</span>
+
+```json 
 // 이메일이 존재하는 경우
 {
     "result": false,
@@ -83,7 +141,8 @@ response = user.signupUser(data)
 }
 ```
 
-**Success**
+<span style="color:blue">Success</span>
+
 ```json
 {
     "result": true,
