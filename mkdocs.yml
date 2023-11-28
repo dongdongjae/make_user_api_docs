@@ -13,30 +13,6 @@ theme:
   font:
     text: Noto Sans Korean
 
-nav:
-    - CONTENTS:
-      - Installation : installation.md
-      - Usage : usage.md
-#   - HOME: index.md
-#   - section1:
-#       section1-1:
-#         section1-1-1: section1/section1-1-1.md
-#       section1-2:
-#         section1-2-1:
-#           section1-2-1.md
-#   - section2:
-#     - page2-1.md
-#     - page2-2.md
 
-
-    # - Section:
-    #   - section/index.md
-    #   - Page 1: section/page-1.md
-    #   - Page 2: section/page-2.md
-
-    # - Section1:
-    #   - section1/index.md
-    #   - Page 1: section1/page-1.md
-    #   - Page 2: section1/page-2.md
 
 repo_url: https://github.com/dongdongjae/make_package

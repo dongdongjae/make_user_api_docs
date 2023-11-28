@@ -1,7 +1,5 @@
-# Installation
+가상환경 생성 후, `make_user_api` 패키지를 설치합니다.
 
-패키지 설치
 ```
-$ pip install make-user-api
+$ pip install make_user_api
 ```
-
